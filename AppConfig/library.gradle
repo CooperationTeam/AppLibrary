@@ -1,0 +1,26 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion gradle.compileSdkVersion
+    buildToolsVersion gradle.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion gradle.minSdkVersion
+        targetSdkVersion gradle.targetSdkVersion
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
+    testImplementation "junit:junit:${gradle.androidxJunit}"
+    androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
+}
