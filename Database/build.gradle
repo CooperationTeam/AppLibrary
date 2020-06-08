@@ -1,9 +1,18 @@
 apply from: "../AppConfig/library.gradle"
 
+android {
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
 dependencies {
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
     testImplementation "junit:junit:${gradle.androidxJunit}"
     androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
-    implementation project(path: ':Font')
 }

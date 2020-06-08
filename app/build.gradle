@@ -27,10 +27,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
     implementation "androidx.constraintlayout:constraintlayout:${gradle.androidxConstraintlayout}"
-    implementation "com.base.library:Font:1.0-SNAPSHOT@aar"
+    implementation "com.base.library:Font:1.0-Release@aar"
+    implementation "com.base.library:ValuesRes:1.0-Release@aar"
 
     testImplementation "junit:junit:${gradle.androidxJunit}"
     androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
-    implementation project(path: ':Font')
 }

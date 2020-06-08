@@ -22,7 +22,7 @@ allprojects {
         jcenter()
         maven {
             // Local maven repository
-            url = "/Users/reber/Github/AppRespository/SNAPSHOT"
+            url = "/Users/reber/Github/AppRespository/Release"
         }
     }
 }

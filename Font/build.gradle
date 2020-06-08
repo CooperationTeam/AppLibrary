@@ -3,10 +3,17 @@ plugins {
 }
 apply from: "../AppConfig/library.gradle"
 
-project.version = '1.1-SNAPSHOT'
+dependencies {
+    implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
+    testImplementation "junit:junit:${gradle.androidxJunit}"
+    androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
+}
+
+project.version = '1.0-Release'
 
 Boolean isRelease() {
-    !project.version.endsWith('-SNAPSHOT')
+    project.version.endsWith('-Release')
 }
 
 publishing {
@@ -26,10 +33,10 @@ publishing {
             // Configure warehouse address
             if (isRelease()) {
                 url = "${gradle.maveUrlRelease}"
-                credentials {
-                    username = System.getenv('OSS_USER')
-                    password = System.getenv('OSS_PASSWORD')
-                }
+//                credentials {
+//                    username = System.getenv('OSS_USER')
+//                    password = System.getenv('OSS_PASSWORD')
+//                }
             } else {
                 url = "${gradle.maveUrlSnapshot}"
             }
