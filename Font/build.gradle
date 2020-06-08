@@ -1,7 +1,7 @@
 plugins {
     id 'maven-publish'
 }
-apply from: "../AppConfig/library.gradle"
+apply from: "../config/library.gradle"
 
 dependencies {
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
