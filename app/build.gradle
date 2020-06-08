@@ -32,4 +32,5 @@ dependencies {
     testImplementation "junit:junit:${gradle.androidxJunit}"
     androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
+    implementation project(path: ':Font')
 }

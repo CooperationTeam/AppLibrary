@@ -1,52 +1,38 @@
-apply from: "../AppConfig/library.gradle"
-apply plugin: 'maven-publish'
-
-//打包源码
-task sourceJar(type: Jar) {
-    classifier("sources")
+plugins {
+    id 'maven-publish'
 }
+apply from: "../AppConfig/library.gradle"
 
-project.version = '1.0-SNAPSHOT'
+project.version = '1.1-SNAPSHOT'
+
+Boolean isRelease() {
+    !project.version.endsWith('-SNAPSHOT')
+}
 
 publishing {
     // 就是配置maven-publishing插件的输出物。
     publications {
         maven(MavenPublication) {
-            artifact "build/outputs/aar/Font-debug.aar"
-            groupId "com.base.library"
+            artifact "build/outputs/aar/${project.name}-${isRelease() ? "release" : "debug"}.aar"
+            groupId "${gradle.maveGroupId}"
             artifactId project.name
             version project.version
-
-            //The publication doesn't know about our dependencies,
-            // so we have to manually add them to the pom
-            configurations.compile.allDependencies.each {
-                println 'it.name=' + it.name + "  it.group=" + it.group
-                if (it.group != null && (it.name != null || "unspecified" == it.name)
-                        && it.version != null) {
-                    def dependencyNode = dependenciesNode.appendNode('dependency')
-                    dependencyNode.appendNode('groupId', it.group)
-                    dependencyNode.appendNode('artifactId', it.name)
-                    dependencyNode.appendNode('version', it.version)
-                    if (it.group == groupId && project.getRootProject().aarMap.contains(it.name)) {
-                        dependencyNode.appendNode('type', 'aar')
-                    }
-                }
-            }
         }
     }
 
     repositories {
         maven {
             // 配置仓库地址
-            def releasesRepoUrl = "${gradle.maveUrlRelease}"
-            def snapshotsRepoUrl = "${gradle.maveUrlSnapshot}"
-            url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-            println version + " ：" + url
-            // 配置仓库的用户名/密码
-//            credentials {
-//                username 'admin'
-//                password '123456'
-//            }
+            // Configure warehouse address
+            if (isRelease()) {
+                url = "${gradle.maveUrlRelease}"
+                credentials {
+                    username = System.getenv('OSS_USER')
+                    password = System.getenv('OSS_PASSWORD')
+                }
+            } else {
+                url = "${gradle.maveUrlSnapshot}"
+            }
         }
     }
 }

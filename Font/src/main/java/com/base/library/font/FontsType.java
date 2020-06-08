@@ -1,7 +1,5 @@
 package com.base.library.font;
 
-import android.content.Context;
-
 import androidx.annotation.IntDef;
 
 import java.lang.annotation.Retention;
@@ -9,7 +7,6 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * @author reber
- * @see FontsUtil#getTypeFace(Context, int)
  */
 @IntDef({
         FontsType.ROBOTO_REGULAR,
