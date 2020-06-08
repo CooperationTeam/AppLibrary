@@ -1,0 +1,11 @@
+apply from: "../AppConfig/library.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
+
+    testImplementation "junit:junit:${gradle.androidxJunit}"
+    androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
+}
