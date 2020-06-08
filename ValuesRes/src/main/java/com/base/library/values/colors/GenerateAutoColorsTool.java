@@ -3,7 +3,6 @@ package com.base.library.values.colors;
 import com.base.library.values.GenerateFileTool;
 
 import java.util.HashMap;
-import java.util.function.BiConsumer;
 
 import static com.base.library.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH;
 
@@ -40,12 +39,9 @@ public class GenerateAutoColorsTool {
 
         final StringBuilder sBuilder = GenerateFileTool.getStartStringBuilder();
 
-        mColors.forEach(new BiConsumer<String, String>() {
-            @Override
-            public void accept(String colorName, String colorValue) {
-                insertColorLine(sBuilder, colorName, colorValue);
-            }
-        });
+        for (String key : mColors.keySet()) {
+            insertColorLine(sBuilder, key, mColors.get(key));
+        }
 
         String content = GenerateFileTool.getEndStringBuilder(sBuilder).toString();
         GenerateFileTool.saveContentToFile(DEFAULT_RES_VALUE_PATH, "colors.xml", content);

@@ -3,7 +3,6 @@ package com.base.library.values.styles;
 import com.base.library.values.GenerateFileTool;
 
 import java.util.HashMap;
-import java.util.function.BiConsumer;
 
 import static com.base.library.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH;
 
@@ -39,12 +38,9 @@ public class GenerateAutoFontsTool {
 
         final StringBuilder sBuilder = GenerateFileTool.getStartStringBuilder();
 
-        mFontStyles.forEach(new BiConsumer<String, String>() {
-            @Override
-            public void accept(String fontName, String fontValue) {
-                insertFontStyleItem(sBuilder, fontName, fontValue);
-            }
-        });
+        for (String key : mFontStyles.keySet()) {
+            insertFontStyleItem(sBuilder, key, mFontStyles.get(key));
+        }
 
         String content = GenerateFileTool.getEndStringBuilder(sBuilder).toString();
         GenerateFileTool.saveContentToFile(DEFAULT_RES_VALUE_PATH, "font_styles.xml", content);
