@@ -9,9 +9,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 /**
  * @author reber
  */
-public class ViewPager2FragmentAdapter extends FragmentStateAdapter {
+public class AppViewPager2FragmentAdapter extends FragmentStateAdapter {
 
-    public ViewPager2FragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
+    public AppViewPager2FragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);
     }
 
