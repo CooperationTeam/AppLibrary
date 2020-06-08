@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'androidx.test.ext:junit:1.1.1'
+    testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+
+task sourceJar(type: Jar) {
+    from sourceSets.main.allJava
+    archiveClassifier = "sources"
+}
+
+project.version = '1.0-SNAPSHOT'
+
+Boolean isRelease() {
+    !project.version.endsWith('-SNAPSHOT')
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId "${gradle.maveGroupId}"
+            artifactId project.name
+            version project.version
+
+            from components.java
+            artifact sourceJar
+        }
+    }
+
+    repositories {
+        maven {
+            // 配置仓库地址
+            // Configure warehouse address
+            if (isRelease()) {
+                url = "${gradle.maveUrlRelease}"
+                credentials {
+                    username = System.getenv('OSS_USER')
+                    password = System.getenv('OSS_PASSWORD')
+                }
+            } else {
+                url = "${gradle.maveUrlSnapshot}"
+            }
+        }
+    }
+}
