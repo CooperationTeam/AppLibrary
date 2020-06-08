@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_88"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="RobotoRegular"
+        android:textAppearance="@style/RobotoRegular"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/sp_40" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_88"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_30"
+        android:gravity="center"
+        android:text="RobotoItalic"
+        android:textAppearance="@style/RobotoItalic"
+        android:textColor="@color/appRed"
+        android:textSize="@dimen/sp_40" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_88"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_30"
+        android:gravity="center"
+        android:text="RobotoBold"
+        android:textAppearance="@style/RobotoBold"
+        android:textColor="@color/appGray"
+        android:textSize="@dimen/sp_40" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

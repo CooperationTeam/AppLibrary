@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".font.AppFontActivity" />
+
         <activity android:name=".database.activity.AppOrderActivity" />
     </application>
 
