@@ -25,10 +25,12 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':Database')
+    implementation project(path: ':Font')
+    implementation project(path: ':Widget')
+    implementation project(path: ':Values')
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
     implementation "androidx.constraintlayout:constraintlayout:${gradle.androidxConstraintlayout}"
-    implementation "com.base.library:Font:1.0-Release@aar"
-    implementation "com.base.library:ValuesRes:1.0-Release@aar"
 
     testImplementation "junit:junit:${gradle.androidxJunit}"
     androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"

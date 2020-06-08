@@ -1,0 +1,13 @@
+apply from: "../AppConfig/library.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
+    implementation "androidx.recyclerview:recyclerview:${gradle.androidxRecyclerView}"
+    implementation "androidx.viewpager2:viewpager2:${gradle.androidxViewPager2}"
+
+    testImplementation "junit:junit:${gradle.androidxJunit}"
+    androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
+    androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
+}
