@@ -1,7 +1,6 @@
 plugins {
     id 'maven-publish'
 }
-
 apply from: "../config/library.gradle"
 
 dependencies {
