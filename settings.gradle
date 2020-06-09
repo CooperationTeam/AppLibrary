@@ -8,19 +8,22 @@ gradle.ext.targetSdkVersion = 29
 gradle.ext.versionCode = 1
 gradle.ext.versionName = '1.0'
 
-gradle.ext.androidxJunit = "4.12"
-gradle.ext.androidxTestJunit = "1.1.1"
-gradle.ext.androidxTestEspresso = "3.2.0"
-
 // maven url
 gradle.ext.maveUrlSnapshot = "../AppRespository/SNAPSHOT"
 gradle.ext.maveUrlRelease = "/Users/reber/Github/AppRespository/Release"
 gradle.ext.maveGroupId = "com.base.library"
 
+// androidx library
+gradle.ext.androidxJunit = "4.12"
+gradle.ext.androidxTestJunit = "1.1.1"
+gradle.ext.androidxTestEspresso = "3.2.0"
+
 gradle.ext.androidxAppcompat = "1.1.0"
 gradle.ext.androidxConstraintlayout = "1.1.3"
 gradle.ext.androidxRecyclerView = "1.2.0-alpha03"
 gradle.ext.androidxViewPager2 = "1.1.0-alpha01"
+
+gradle.ext.androidxRoom= "2.2.5"
 
 rootProject.name = 'AppLibrary'
 include ':app'

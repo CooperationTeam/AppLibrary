@@ -12,6 +12,10 @@ android {
 
 dependencies {
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
+
+    implementation "androidx.room:room-runtime:${gradle.androidxRoom}"
+    annotationProcessor "androidx.room:room-compiler:${gradle.androidxRoom}"
+
     testImplementation "junit:junit:${gradle.androidxJunit}"
     androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"
     androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"

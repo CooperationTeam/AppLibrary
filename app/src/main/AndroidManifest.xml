@@ -3,6 +3,7 @@
     package="com.base.library.app">
 
     <application
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -19,7 +20,7 @@
 
         <activity android:name=".font.AppFontActivity" />
 
-        <activity android:name=".database.activity.AppOrderActivity" />
+        <activity android:name=".database.activity.AppUserActivity" />
     </application>
 
 </manifest>

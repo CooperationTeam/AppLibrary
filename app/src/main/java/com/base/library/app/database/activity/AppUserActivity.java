@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 /**
  * @author reber
  */
-public class AppOrderActivity extends AppCompatActivity {
+public class AppUserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
