@@ -5,16 +5,16 @@ import android.util.AttributeSet;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class AppCC extends ConstraintLayout {
-    public AppCC(Context context) {
+public class AppConstraintLayout extends ConstraintLayout {
+    public AppConstraintLayout(Context context) {
         super(context);
     }
 
-    public AppCC(Context context, AttributeSet attrs) {
+    public AppConstraintLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public AppCC(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AppConstraintLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 }

@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatButton;
 
 public class AppButton extends AppCompatButton {
+
     public AppButton(Context context) {
         super(context);
     }

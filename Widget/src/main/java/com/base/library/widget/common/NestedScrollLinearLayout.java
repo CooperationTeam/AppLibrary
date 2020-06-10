@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.NestedScrollingChildHelper;
 import androidx.core.view.ViewCompat;
@@ -16,7 +15,7 @@ import androidx.core.view.ViewCompat;
  * <p>
  * 实现header跟随手指触发整体滑动
  */
-public class NestedScrollLinearLayout extends LinearLayoutCompat implements NestedScrollingChild {
+public class NestedScrollLinearLayout extends AppLinearLayout implements NestedScrollingChild {
 
     private final int[] offset = new int[2];
     private final int[] consumed = new int[2];
