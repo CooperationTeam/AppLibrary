@@ -26,7 +26,7 @@ import android.view.View;
  * <p>Also the setting of absolute offsets (similar to translationX/Y), rather than additive
  * offsets.
  */
-class ViewOffsetHelper {
+class AppViewOffsetHelper {
 
     private final View view;
 
@@ -37,7 +37,7 @@ class ViewOffsetHelper {
     private boolean verticalOffsetEnabled = true;
     private boolean horizontalOffsetEnabled = true;
 
-    public ViewOffsetHelper(View view) {
+    public AppViewOffsetHelper(View view) {
         this.view = view;
     }
 
@@ -53,7 +53,7 @@ class ViewOffsetHelper {
     }
 
     /**
-     * Set the top and bottom offset for this {@link ViewOffsetHelper}'s view.
+     * Set the top and bottom offset for this {@link AppViewOffsetHelper}'s view.
      *
      * @param offset the offset in px.
      * @return true if the offset has changed
@@ -68,7 +68,7 @@ class ViewOffsetHelper {
     }
 
     /**
-     * Set the left and right offset for this {@link ViewOffsetHelper}'s view.
+     * Set the left and right offset for this {@link AppViewOffsetHelper}'s view.
      *
      * @param offset the offset in px.
      * @return true if the offset has changed

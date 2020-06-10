@@ -23,18 +23,18 @@ import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 /**
- * Behavior will automatically sets up a {@link ViewOffsetHelper} on a {@link View}.
+ * Behavior will automatically sets up a {@link AppViewOffsetHelper} on a {@link View}.
  */
-class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
+class AppViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
 
-    private ViewOffsetHelper viewOffsetHelper;
+    private AppViewOffsetHelper appViewOffsetHelper;
 
     private int tempTopBottomOffset = 0;
     private int tempLeftRightOffset = 0;
 
-    public ViewOffsetBehavior() { }
+    public AppViewOffsetBehavior() { }
 
-    public ViewOffsetBehavior(Context context, AttributeSet attrs) {
+    public AppViewOffsetBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -44,18 +44,18 @@ class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
         // First let lay the child out
         layoutChild(parent, child, layoutDirection);
 
-        if (viewOffsetHelper == null) {
-            viewOffsetHelper = new ViewOffsetHelper(child);
+        if (appViewOffsetHelper == null) {
+            appViewOffsetHelper = new AppViewOffsetHelper(child);
         }
-        viewOffsetHelper.onViewLayout();
-        viewOffsetHelper.applyOffsets();
+        appViewOffsetHelper.onViewLayout();
+        appViewOffsetHelper.applyOffsets();
 
         if (tempTopBottomOffset != 0) {
-            viewOffsetHelper.setTopAndBottomOffset(tempTopBottomOffset);
+            appViewOffsetHelper.setTopAndBottomOffset(tempTopBottomOffset);
             tempTopBottomOffset = 0;
         }
         if (tempLeftRightOffset != 0) {
-            viewOffsetHelper.setLeftAndRightOffset(tempLeftRightOffset);
+            appViewOffsetHelper.setLeftAndRightOffset(tempLeftRightOffset);
             tempLeftRightOffset = 0;
         }
 
@@ -69,8 +69,8 @@ class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     }
 
     public boolean setTopAndBottomOffset(int offset) {
-        if (viewOffsetHelper != null) {
-            return viewOffsetHelper.setTopAndBottomOffset(offset);
+        if (appViewOffsetHelper != null) {
+            return appViewOffsetHelper.setTopAndBottomOffset(offset);
         } else {
             tempTopBottomOffset = offset;
         }
@@ -78,8 +78,8 @@ class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     }
 
     public boolean setLeftAndRightOffset(int offset) {
-        if (viewOffsetHelper != null) {
-            return viewOffsetHelper.setLeftAndRightOffset(offset);
+        if (appViewOffsetHelper != null) {
+            return appViewOffsetHelper.setLeftAndRightOffset(offset);
         } else {
             tempLeftRightOffset = offset;
         }
@@ -87,30 +87,30 @@ class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     }
 
     public int getTopAndBottomOffset() {
-        return viewOffsetHelper != null ? viewOffsetHelper.getTopAndBottomOffset() : 0;
+        return appViewOffsetHelper != null ? appViewOffsetHelper.getTopAndBottomOffset() : 0;
     }
 
     public int getLeftAndRightOffset() {
-        return viewOffsetHelper != null ? viewOffsetHelper.getLeftAndRightOffset() : 0;
+        return appViewOffsetHelper != null ? appViewOffsetHelper.getLeftAndRightOffset() : 0;
     }
 
     public void setVerticalOffsetEnabled(boolean verticalOffsetEnabled) {
-        if (viewOffsetHelper != null) {
-            viewOffsetHelper.setVerticalOffsetEnabled(verticalOffsetEnabled);
+        if (appViewOffsetHelper != null) {
+            appViewOffsetHelper.setVerticalOffsetEnabled(verticalOffsetEnabled);
         }
     }
 
     public boolean isVerticalOffsetEnabled() {
-        return viewOffsetHelper != null && viewOffsetHelper.isVerticalOffsetEnabled();
+        return appViewOffsetHelper != null && appViewOffsetHelper.isVerticalOffsetEnabled();
     }
 
     public void setHorizontalOffsetEnabled(boolean horizontalOffsetEnabled) {
-        if (viewOffsetHelper != null) {
-            viewOffsetHelper.setHorizontalOffsetEnabled(horizontalOffsetEnabled);
+        if (appViewOffsetHelper != null) {
+            appViewOffsetHelper.setHorizontalOffsetEnabled(horizontalOffsetEnabled);
         }
     }
 
     public boolean isHorizontalOffsetEnabled() {
-        return viewOffsetHelper != null && viewOffsetHelper.isHorizontalOffsetEnabled();
+        return appViewOffsetHelper != null && appViewOffsetHelper.isHorizontalOffsetEnabled();
     }
 }

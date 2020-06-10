@@ -36,9 +36,9 @@ import java.util.List;
 
 /**
  * The {@link Behavior} for a scrolling view that is positioned vertically below another view. See
- * {@link HeaderBehavior}.
+ * {@link AppHeaderBehavior}.
  */
-abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
+abstract class AppHeaderScrollingBehavior extends AppViewOffsetBehavior<View> {
 
     private final Rect tempRect1 = new Rect();
     private final Rect tempRect2 = new Rect();
@@ -46,10 +46,10 @@ abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     private int verticalLayoutGap = 0;
     private int overlayTop;
 
-    public HeaderScrollingViewBehavior() {
+    public AppHeaderScrollingBehavior() {
     }
 
-    public HeaderScrollingViewBehavior(Context context, AttributeSet attrs) {
+    public AppHeaderScrollingBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 

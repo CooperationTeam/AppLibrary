@@ -32,9 +32,9 @@ import androidx.core.view.ViewCompat;
 
 /**
  * The {@link Behavior} for a view that sits vertically above scrolling a view. See {@link
- * HeaderScrollingViewBehavior}.
+ * AppHeaderScrollingBehavior}.
  */
-abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
+abstract class AppHeaderBehavior<V extends View> extends AppViewOffsetBehavior<V> {
 
     private static final int INVALID_POINTER = -1;
 
@@ -49,10 +49,10 @@ abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     @Nullable
     private VelocityTracker velocityTracker;
 
-    public HeaderBehavior() {
+    public AppHeaderBehavior() {
     }
 
-    public HeaderBehavior(Context context, AttributeSet attrs) {
+    public AppHeaderBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
