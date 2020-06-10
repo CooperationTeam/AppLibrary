@@ -10,7 +10,7 @@ import com.base.library.widget.AppWidgetConstants;
  * <p>
  * 处理view的间隔点击事件
  */
-public class OnIntervalClickListener implements View.OnClickListener {
+public class OnAppIntervalClickListener implements View.OnClickListener {
 
     private View.OnClickListener mClickListener;
     /**
@@ -18,15 +18,15 @@ public class OnIntervalClickListener implements View.OnClickListener {
      */
     private long mIntervalTimeValue;
 
-    public OnIntervalClickListener() {
+    public OnAppIntervalClickListener() {
         this(null, ViewConfiguration.getDoubleTapTimeout());
     }
 
-    public OnIntervalClickListener(View.OnClickListener clickListener) {
+    public OnAppIntervalClickListener(View.OnClickListener clickListener) {
         this(clickListener, AppWidgetConstants.VIEW_CLICKABLE_DEFAULT_TIME);
     }
 
-    public OnIntervalClickListener(View.OnClickListener clickListener, long intervalTimeValue) {
+    public OnAppIntervalClickListener(View.OnClickListener clickListener, long intervalTimeValue) {
         this.mClickListener = clickListener;
         this.mIntervalTimeValue = intervalTimeValue;
     }
