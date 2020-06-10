@@ -28,7 +28,8 @@ public abstract class AppPageLoadWidgetImpl extends FrameLayout {
         this(context, attrs, 0);
     }
 
-    public AppPageLoadWidgetImpl(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public AppPageLoadWidgetImpl(@NonNull Context context, @Nullable AttributeSet attrs,
+                                 int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -42,13 +43,14 @@ public abstract class AppPageLoadWidgetImpl extends FrameLayout {
     }
 
     /**
-     * 如果想重新定义一套loading、empty、failure的页面，可以自定一个实现类{@link AppPageLoadControllerDelegate}，
-     * 或继承{@link AppPageLoadControllerImpl},再通过set方法更新
+     * 如果想重新定义一套loading、empty、failure的页面，可以自定一个实现类
+     * {@link AppPageLoadControllerDelegate}，或继承{@link AppPageLoadControllerImpl},
+     * 再通过set方法更新
      */
     public void setPageLoadDelegate(AppPageLoadControllerDelegate appPageLoadControllerDelegate) {
         if (mAppPageLoadController != null) {
-            throw new ExceptionInInitializerError("Please setPageLoadDelegate before page switching, " +
-                    "such as before such as before setPageState");
+            throw new ExceptionInInitializerError("Please initialize the mAppPageLoadController " +
+                    "object through setPageLoadDelegate before using the setPageState method");
         }
         this.mAppPageLoadController = appPageLoadControllerDelegate;
     }
@@ -116,7 +118,8 @@ public abstract class AppPageLoadWidgetImpl extends FrameLayout {
      * @param loadingVisible 是显示loading页面
      * @param loadingMessage loading加载中的提示信息
      */
-    private void onUpdateLoadingView(@AppPageLoadState int pageState, boolean loadingVisible, String loadingMessage) {
+    private void onUpdateLoadingView(@AppPageLoadState int pageState, boolean loadingVisible,
+                                     String loadingMessage) {
         if (loadingVisible && mLoadingView == null) {
             this.mLoadingView = getPageStateView(pageState, loadingMessage);
             addView(mLoadingView);
@@ -140,7 +143,8 @@ public abstract class AppPageLoadWidgetImpl extends FrameLayout {
      * @param emptyVisible 是否显示空页面
      * @param emptyMessage 数据为空后的提示信息
      */
-    private void onUpdateEmptyView(@AppPageLoadState int pageState, boolean emptyVisible, String emptyMessage) {
+    private void onUpdateEmptyView(@AppPageLoadState int pageState, boolean emptyVisible,
+                                   String emptyMessage) {
         if (emptyVisible && mEmptyView == null) {
             this.mEmptyView = getPageStateView(pageState, emptyMessage);
             addView(mEmptyView);
@@ -155,7 +159,8 @@ public abstract class AppPageLoadWidgetImpl extends FrameLayout {
      * @param failureVisible 是否显示失败页面
      * @param failureMessage 失败后的提示信息
      */
-    private void onUpdateFailureView(@AppPageLoadState int pageState, boolean failureVisible, String failureMessage) {
+    private void onUpdateFailureView(@AppPageLoadState int pageState, boolean failureVisible,
+                                     String failureMessage) {
         if (failureVisible && mFailureView == null) {
             mFailureView = getPageStateView(pageState, failureMessage);
             addView(mFailureView);

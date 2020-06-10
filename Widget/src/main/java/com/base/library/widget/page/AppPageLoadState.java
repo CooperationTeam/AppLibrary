@@ -10,7 +10,12 @@ import java.lang.annotation.RetentionPolicy;
  * <p>
  * 页面的加载状态
  */
-@IntDef({AppPageLoadState.LOADING, AppPageLoadState.SUCCESS, AppPageLoadState.FAILURE, AppPageLoadState.EMPTY})
+@IntDef({
+        AppPageLoadState.LOADING,
+        AppPageLoadState.SUCCESS,
+        AppPageLoadState.FAILURE,
+        AppPageLoadState.EMPTY
+})
 @Retention(RetentionPolicy.SOURCE)
 public @interface AppPageLoadState {
     int LOADING = 0; // 加载中

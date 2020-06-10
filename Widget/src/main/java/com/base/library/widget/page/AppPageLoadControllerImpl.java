@@ -5,7 +5,6 @@ import android.view.ViewGroup;
 
 import com.base.library.widget.listener.OnAppPageLoadListener;
 
-
 /**
  * @author reber
  */
@@ -14,7 +13,8 @@ public abstract class AppPageLoadControllerImpl implements AppPageLoadController
     private OnAppPageLoadListener mOnAppPageLoadListener;
 
     @Override
-    public View getViewWithPageState(@AppPageLoadState int pageState, ViewGroup parent, String message) {
+    public View getViewWithPageState(@AppPageLoadState int pageState, ViewGroup parent,
+                                     String message) {
         switch (pageState) {
             case AppPageLoadState.LOADING:
                 return getLoadingView(parent, message);
@@ -24,7 +24,8 @@ public abstract class AppPageLoadControllerImpl implements AppPageLoadController
                 return getFailureView(parent, message);
             case AppPageLoadState.SUCCESS:
             default:
-                throw new IllegalStateException("not support pageState:" + pageState + " in this controller");
+                throw new IllegalStateException("not support pageState:" +
+                        pageState + " in this controller");
         }
     }
 

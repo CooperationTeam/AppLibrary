@@ -9,7 +9,6 @@ import com.base.library.widget.listener.OnAppPageLoadListener;
  * @author reber
  */
 public interface AppPageLoadControllerDelegate {
-
     /**
      * 根据不同的页面状态返沪不同的页面
      */
