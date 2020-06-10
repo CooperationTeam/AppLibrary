@@ -9,6 +9,10 @@ dependencies {
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
     implementation "androidx.recyclerview:recyclerview:${gradle.androidxRecyclerView}"
     implementation "androidx.viewpager2:viewpager2:${gradle.androidxViewPager2}"
+    implementation "androidx.constraintlayout:constraintlayout:${gradle.androidxConstraintlayout}"
+
+    // AppBarLayout不属于androidx下，已经移动到google/material包下了
+    implementation "com.google.android.material:material:${gradle.googleMaterial}"
 
     testImplementation "junit:junit:${gradle.androidxJunit}"
     androidTestImplementation "androidx.test.ext:junit:${gradle.androidxTestJunit}"

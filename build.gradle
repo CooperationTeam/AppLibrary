@@ -18,6 +18,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        mavenLocal() // 先获取本地的依赖
         maven {
             // Local maven repository
             url = "/Users/reber/Github/AppRespository/Release"
