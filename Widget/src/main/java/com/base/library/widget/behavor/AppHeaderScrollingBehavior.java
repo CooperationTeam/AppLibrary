@@ -16,6 +16,7 @@
  */
 package com.base.library.widget.behavor;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
@@ -73,6 +74,7 @@ abstract class AppHeaderScrollingBehavior extends AppViewOffsetBehavior<View> {
                 int availableHeight = View.MeasureSpec.getSize(parentHeightMeasureSpec);
                 if (availableHeight > 0) {
                     if (ViewCompat.getFitsSystemWindows(header)) {
+                        @SuppressLint("RestrictedApi")
                         final WindowInsetsCompat parentInsets = parent.getLastWindowInsets();
                         if (parentInsets != null) {
                             availableHeight += parentInsets.getSystemWindowInsetTop()
@@ -126,7 +128,7 @@ abstract class AppHeaderScrollingBehavior extends AppViewOffsetBehavior<View> {
                     parent.getWidth() - parent.getPaddingRight() - lp.rightMargin,
                     parent.getHeight() + header.getBottom() - parent.getPaddingBottom() - lp.bottomMargin);
 
-            final WindowInsetsCompat parentInsets = parent.getLastWindowInsets();
+            @SuppressLint("RestrictedApi") final WindowInsetsCompat parentInsets = parent.getLastWindowInsets();
             if (parentInsets != null
                     && ViewCompat.getFitsSystemWindows(parent)
                     && !ViewCompat.getFitsSystemWindows(child)) {
