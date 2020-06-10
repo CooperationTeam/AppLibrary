@@ -5,24 +5,30 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.Nullable;
 
 import com.base.library.app.font.AppFontActivity;
+import com.base.library.common.activity.AppBaseActivity;
+import com.base.library.widget.listener.OnAppIntervalClickListener;
 
 /**
  * @author reber
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppBaseActivity implements View.OnClickListener {
 
     private static final int APP_FONT = 1;   // Font
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
+    @Override
+    protected void onInitCreate(@Nullable Bundle savedInstanceState) {
         LinearLayout linearLayout = findViewById(R.id.container_layout);
-        linearLayout.addView(ViewUtil.generationItemView(this, "Font的展示", APP_FONT, this));
+        // 获取间隔的点击时间，防止重复点击
+        OnAppIntervalClickListener clickListener = new OnAppIntervalClickListener(this);
+        linearLayout.addView(ViewUtil.generationItemView(this, "Font的展示", APP_FONT, clickListener));
     }
 
     @Override
