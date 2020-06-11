@@ -10,7 +10,7 @@ gradle.ext.versionName = '1.0'
 
 // maven url
 gradle.ext.maveUrlSnapshot = "../AppRespository/SNAPSHOT"
-gradle.ext.maveUrlRelease = "/Users/reber/Github/AppRespository/Release"
+gradle.ext.maveUrlRelease = "../AppRespository/Release"
 gradle.ext.maveGroupId = "com.base.library"
 
 // androidx library

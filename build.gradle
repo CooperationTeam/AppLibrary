@@ -21,7 +21,8 @@ allprojects {
         mavenLocal() // 先获取本地的依赖
         maven {
             // Local maven repository
-            url = "/Users/reber/Github/AppRespository/Release"
+            url = System.getProperty("user.dir") + "AppRespository/SNAPSHOT"
+            url = System.getProperty("user.dir") + "/AppRespository/Release"
         }
     }
 }

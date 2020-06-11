@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class GenerateFileTool {
 
-    public final static String BASE_RES_PATH = "/Users/reber/Github/AppLibrary/ValuesRes/src/main/res";
+    public final static String BASE_RES_PATH = System.getProperty("user.dir") + "/Values/src/main/res";
 
     public final static String DEFAULT_RES_VALUE_PATH = BASE_RES_PATH + File.separator + "values";
 
