@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--给View添加圆角-->
+    <declare-styleable name="AppRoundLayout">
+        <!--a type of enum to set the radio position and the radio count-->
+        <attr name="shapeCornerType" format="enum">
+            <enum name="MODE_NONE" value="0" />
+            <enum name="MODE_TOP_LEFT" value="1" />
+            <enum name="MODE_TOP_RIGHT" value="2" />
+            <enum name="MODE_BOTTOM_RIGHT" value="3" />
+            <enum name="MODE_BOTTOM_LEFT" value="4" />
+            <enum name="MODE_LEFT" value="5" />
+            <enum name="MODE_TOP" value="6" />
+            <enum name="MODE_RIGHT" value="7" />
+            <enum name="MODE_BOTTOM" value="8" />
+            <enum name="MODE_ALL" value="9" />
+        </attr>
+        <!--a float value to use shape radio, this is only support dp/sp/px/...
+         or is from dimens.xml file-->
+        <attr name="shapeCornerRadius" format="dimension" />
+        <!-- A drawable to use as the background.  This can be either a reference
+             to a full drawable resource (such as a PNG image, 9-patch,
+             XML state list description, etc), or a solid color such as "#ff000000"
+            (black). -->
+        <attr name="shapeSolidBackground" format="reference|color" />
+    </declare-styleable>
+
+    <!--View's stroke setting-->
+    <declare-styleable name="AppStrokeLayout">
+        <!--stoke line color-->
+        <attr name="strokeColor" format="color" />
+        <!--stoke line width, it is the paint width-->
+        <attr name="stokeWidth" format="dimension" />
+        <!--stoke line array, the format is string array，
+        the length must be even and use "," split，such as: "12,2,12,3,....".-->
+        <attr name="stokeDashWidthArrayByDp" format="string" />
+    </declare-styleable>
+
+    <!--selector background setting-->
+    <declare-styleable name="AppStateBackgroundLayout">
+        <attr name="statePressedBackground" format="reference|color" />
+        <attr name="stateSelectedBackground" format="reference|color" />
+        <attr name="stateUnselectedBackground" format="reference|color" />
+        <attr name="stateDisableBackground" format="reference|color" />
+        <attr name="stateEnabledBackground" format="reference|color" />
+        <!--when the background is changed,set animator duration-->
+        <attr name="stateChangedFadeDuration" format="integer" />
+    </declare-styleable>
+
+    <!--selector text color setting-->
+    <declare-styleable name="AppStateTextColorLayout">
+        <attr name="statePressedTextColor" format="reference|color" />
+        <attr name="stateSelectedTextColor" format="reference|color" />
+        <attr name="stateUnselectedTextColor" format="reference|color" />
+        <attr name="stateDisableTextColor" format="reference|color" />
+        <attr name="stateEnabledTextColor" format="reference|color" />
+    </declare-styleable>
+</resources>

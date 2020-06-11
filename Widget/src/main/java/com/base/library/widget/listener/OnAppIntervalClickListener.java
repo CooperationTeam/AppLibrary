@@ -4,6 +4,7 @@ import android.view.View;
 import android.view.ViewConfiguration;
 
 import com.base.library.widget.AppWidgetConstants;
+import com.base.library.widget.R;
 
 /**
  * @author reber
@@ -23,7 +24,7 @@ public class OnAppIntervalClickListener implements View.OnClickListener {
     }
 
     public OnAppIntervalClickListener(View.OnClickListener clickListener) {
-        this(clickListener, AppWidgetConstants.VIEW_CLICKABLE_DEFAULT_TIME);
+        this.mClickListener = clickListener;
     }
 
     public OnAppIntervalClickListener(View.OnClickListener clickListener, long intervalTimeValue) {
@@ -49,6 +50,10 @@ public class OnAppIntervalClickListener implements View.OnClickListener {
         if (object != null) {
             // 获取上一次点击的时间
             long preClickTime = (long) object;
+            if (mIntervalTimeValue == 0) {
+                mIntervalTimeValue = view.getContext().getResources()
+                        .getInteger(R.integer.VIEW_CLICKABLE_DEFAULT_TIME);
+            }
             intervalClickEnable = preClickTime + mIntervalTimeValue >= System.currentTimeMillis();
         }
         if (intervalClickEnable) {
