@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -12,16 +13,28 @@ import androidx.fragment.app.Fragment;
 /**
  * @author reber
  */
-public class AppFragment extends Fragment {
+public abstract class AppBaseFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return inflater.inflate(getLayoutId(), container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        onInitActivityCreated(savedInstanceState);
     }
+
+    /**
+     * 获取Fragment的布局Id
+     */
+    abstract @LayoutRes
+    int getLayoutId();
+
+    /**
+     * 在onCreate方法中，调用setContentView后的初始化，
+     */
+    abstract void onInitActivityCreated(@Nullable Bundle savedInstanceState);
 }

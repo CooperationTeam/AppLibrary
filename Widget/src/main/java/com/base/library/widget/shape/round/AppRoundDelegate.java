@@ -7,6 +7,10 @@ package com.base.library.widget.shape.round;
  */
 public interface AppRoundDelegate {
     /**
+     * No add angles to all corners.
+     */
+    int MODE_NONE = 0;
+    /**
      * add top left.
      */
     int MODE_TOP_LEFT = 1;
@@ -42,8 +46,4 @@ public interface AppRoundDelegate {
      * Add angles to all four corners.
      */
     int MODE_ALL = 9;
-    /**
-     * No add angles to all corners.
-     */
-    int MODE_NONE = 10;
 }

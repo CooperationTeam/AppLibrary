@@ -13,6 +13,9 @@ import androidx.fragment.app.FragmentTransaction;
 import com.base.library.common.delegate.AppNavigateDelegate;
 import com.base.library.common.delegate.FragmentFillingType;
 
+/**
+ * @author reber
+ */
 public class AppNavigateHelper implements AppNavigateDelegate {
 
     /**
