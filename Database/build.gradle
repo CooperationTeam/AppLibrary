@@ -30,10 +30,10 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:${gradle.androidxTestEspresso}"
 }
 
-def isRelease = false
+def isPublishingRelease = gradle.mavePublishingRelease
 def mavenVersion = '1.0'
 def destinationOutputDir = 'build/outputs/aar'
-project.version = "${mavenVersion}-${isRelease ? 'Release' : 'SNAPSHOT'}"
+project.version = "${mavenVersion}-${isPublishingRelease ? 'Release' : 'SNAPSHOT'}"
 
 task sourcesJar(type: Jar) {
     archiveClassifier = 'sources'
@@ -49,7 +49,7 @@ publishing {
             version "${project.version}"
 
             // build/outputs/aar/Font-debug.aar
-            artifact "${destinationOutputDir}/${project.name}-${isRelease ? 'release' : 'debug'}.aar"
+            artifact "${destinationOutputDir}/${project.name}-${isPublishingRelease ? 'release' : 'debug'}.aar"
             artifact sourcesJar
 
             // The publication doesn't know about our dependencies,
@@ -67,7 +67,7 @@ publishing {
     repositories {
         maven {
             // 配置仓库地址 Configure warehouse address
-            if (isRelease) {
+            if (isPublishingRelease) {
                 url = "${gradle.maveUrlRelease}"
 //                credentials {
 //                    username = System.getenv('OSS_USER')
