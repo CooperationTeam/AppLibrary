@@ -36,7 +36,7 @@ dependencies {
     implementation project(path: ':Utils')
     implementation project(path: ':Video')
     implementation project(path: ':Configuration')
-    implementation project(path: ':push')
+    implementation project(path: ':Push')
     implementation project(path: ':Database')
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
     implementation "androidx.constraintlayout:constraintlayout:${gradle.androidxConstraintlayout}"
