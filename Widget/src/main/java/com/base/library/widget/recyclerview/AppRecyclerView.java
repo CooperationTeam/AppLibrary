@@ -1,4 +1,4 @@
-package com.base.widget.recyclerview;
+package com.base.library.widget.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;

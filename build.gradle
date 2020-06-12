@@ -21,19 +21,19 @@ allprojects {
         mavenLocal() // 先获取本地的依赖
         maven {
             // Local maven repository
-            url = System.getProperty("user.home") + "/AppRespository/Release"
+            url = System.getProperty("user.home") + "/AppRespository/RELEASE"
         }
     }
 }
 
 /**
- * 手动添加dependencies下的依赖大pom文件中
+ * 手动添加dependencies下的依赖到pom文件中
  */
 def addPomDependencies(it, dependenciesNode) {
     def dependencyNode = dependenciesNode.appendNode('dependency')
 
     dependencyNode.appendNode('groupId', it.group == getRootProject().name ? "${gradle.maveGroupId}" : it.group)
-    dependencyNode.appendNode('artifactId', it.name)
+    dependencyNode.appendNode('artifactId', it.group == getRootProject().name ? it.name.toLowerCase() : it.name)
     dependencyNode.appendNode('version', it.version)
     dependencyNode.appendNode('scope', 'implementation')
 }
