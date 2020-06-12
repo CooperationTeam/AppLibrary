@@ -31,12 +31,12 @@ dependencies {
     implementation project(path: ':Font')
     implementation project(path: ':Widget')
     implementation project(path: ':Values')
-    implementation project(path: ':NetWork')
+    implementation project(path: ':Network')
     implementation project(path: ':Common')
     implementation project(path: ':Utils')
     implementation project(path: ':Video')
-    implementation project(path: ':AppConfiguration')
-    implementation project(path: ':AppPush')
+    implementation project(path: ':Configuration')
+    implementation project(path: ':push')
     implementation project(path: ':Database')
     implementation "androidx.appcompat:appcompat:${gradle.androidxAppcompat}"
     implementation "androidx.constraintlayout:constraintlayout:${gradle.androidxConstraintlayout}"
