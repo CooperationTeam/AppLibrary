@@ -1,7 +1,18 @@
-apply from: "../config/library.gradle"
+apply plugin: 'com.android.library'
 
 android {
+    compileSdkVersion gradle.compileSdkVersion
+    buildToolsVersion gradle.buildToolsVersion
+
     defaultConfig {
+        minSdkVersion gradle.minSdkVersion
+        targetSdkVersion gradle.targetSdkVersion
+        versionCode gradle.versionCode
+        versionName gradle.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation":
@@ -9,6 +20,12 @@ android {
             }
         }
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
     // 用于测试
     // json文件文件会导出在工程目录下的schemas文件夹下面。里面会有各个版本数据库的信息
     sourceSets {
