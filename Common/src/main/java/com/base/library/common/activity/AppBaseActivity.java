@@ -31,8 +31,8 @@ public abstract class AppBaseActivity extends AppCompatActivity {
     /**
      * 获取activity的布局Id
      */
-    protected abstract @LayoutRes
-    int getLayoutId();
+    @LayoutRes
+    protected abstract int getLayoutId();
 
     /**
      * 在onCreate方法中，调用setContentView后的初始化，

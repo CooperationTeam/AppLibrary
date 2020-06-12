@@ -30,11 +30,11 @@ public abstract class AppBaseFragment extends Fragment {
     /**
      * 获取Fragment的布局Id
      */
-    abstract @LayoutRes
-    int getLayoutId();
+    @LayoutRes
+    protected abstract int getLayoutId();
 
     /**
      * 在onCreate方法中，调用setContentView后的初始化，
      */
-    abstract void onInitActivityCreated(@Nullable Bundle savedInstanceState);
+    protected abstract void onInitActivityCreated(@Nullable Bundle savedInstanceState);
 }
