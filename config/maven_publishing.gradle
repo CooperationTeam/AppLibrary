@@ -1,4 +1,4 @@
-apply plugin:'maven-publish'
+apply plugin: 'maven-publish'
 
 task sourcesJar(type: Jar) {
     archiveClassifier = 'sources'
@@ -35,7 +35,12 @@ publishing {
             pom.withXml {
                 def dependenciesNode = asNode().appendNode('dependencies')
                 configurations.implementation.allDependencies.each {
-                    if (it.group != null && it.name != null && "unspecified" != it.name && it.version != null) {
+                    if (it.group != null &&
+                            !it.group.contains("androidx") &&
+                            it.name != null &&
+                            "unspecified" != it.name &&
+                            getRootProject().name != it.name &&
+                            it.version != null) {
                         addPomDependencies(it, dependenciesNode)
                     }
                 }
