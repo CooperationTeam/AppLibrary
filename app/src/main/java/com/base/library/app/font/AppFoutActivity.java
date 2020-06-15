@@ -10,12 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.base.library.app.R;
 
 /**
- * @author reber
+ * Created by sunrise on 2020/6/15.
  */
-public class AppFontActivity extends AppCompatActivity {
-
+public class AppFoutActivity extends AppCompatActivity {
     public static Intent getIntent(Context context) {
-        return new Intent(context, AppFontActivity.class);
+        return new Intent(context, AppFoutActivity.class);
     }
 
     @Override

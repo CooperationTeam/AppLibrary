@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.Nullable;
 
-import com.base.library.app.font.AppFontActivity;
+import com.base.library.app.font.AppFoutActivity;
 import com.base.library.common.activity.AppBaseActivity;
 import com.base.library.widget.listener.OnAppIntervalClickListener;
 
@@ -37,7 +37,7 @@ public class MainActivity extends AppBaseActivity implements View.OnClickListene
         Intent intent = null;
         switch (type) {
             case APP_FONT:
-                intent = AppFontActivity.getIntent(this);
+                intent = AppFoutActivity.getIntent(this);
                 break;
         }
         if (intent != null) {
